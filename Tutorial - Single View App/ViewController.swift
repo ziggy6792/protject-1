@@ -22,7 +22,7 @@ class ViewController: UITableViewController {
         let path = Bundle.main.resourcePath!
         let items = try! fm.contentsOfDirectory(atPath: path)
         
-        for item in items {
+        for item in items.sorted() {
             if item.hasPrefix("nssl") {
                 pictures.append(item)
             }
@@ -48,6 +48,7 @@ class ViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
                 vc.selectedImage = pictures[indexPath.row]
+                vc.imageTitle = "Bla bla"
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else {
