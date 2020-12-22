@@ -48,7 +48,7 @@ class ViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             if let vc = storyboard?.instantiateViewController(identifier: "Detail") as? DetailViewController {
                 vc.selectedImage = pictures[indexPath.row]
-                vc.imageTitle = "Bla bla"
+                vc.imageTitle = "Storm \(indexPath.row + 1) of \(pictures.count)"
                 navigationController?.pushViewController(vc, animated: true)
             }
         } else {
